@@ -177,7 +177,7 @@ export const mockData = {
       title: "Performance-Driven Experimentation",
       description: "Continuous testing of listings, ads, and creatives for higher ROI."
     }
-  ]
+  ],
   
   launchServices: [
     {
