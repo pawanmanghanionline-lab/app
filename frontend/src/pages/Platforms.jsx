@@ -139,32 +139,16 @@ const Platforms = () => {
             </div>
             
             <div className="space-y-6">
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-lg text-gray-900 mb-3">
-                  Centralized Dashboard
-                </h3>
-                <p className="text-gray-600">
-                  Track performance across all platforms in one place. Compare metrics, identify trends, and make data-driven decisions.
-                </p>
-              </div>
-              
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-lg text-gray-900 mb-3">
-                  Platform-Specific Optimization
-                </h3>
-                <p className="text-gray-600">
-                  Each marketplace has unique algorithms and best practices. We optimize listings, ads, and strategies for each platform's requirements.
-                </p>
-              </div>
-              
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-lg text-gray-900 mb-3">
-                  Inventory & Pricing Sync
-                </h3>
-                <p className="text-gray-600">
-                  Maintain consistent inventory levels and competitive pricing across platforms while maximizing margins.
-                </p>
-              </div>
+              {mockData.platformStrategy.map((strategy) => (
+                <div key={strategy.id} className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="font-semibold text-lg text-gray-900 mb-3">
+                    {strategy.title}
+                  </h3>
+                  <p className="text-gray-600">
+                    {strategy.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
