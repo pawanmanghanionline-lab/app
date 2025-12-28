@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, ShoppingBag, FileText, Award, TrendingUp, DollarSign, Shield, BarChart3 } from 'lucide-react';
+import { ArrowRight, ShoppingBag, FileText, Award, TrendingUp, DollarSign, Shield, BarChart3, Camera, Video, Palette, FileCheck, FileStack, Globe } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { mockData } from '../mock';
@@ -13,6 +13,15 @@ const Services = () => {
     5: DollarSign,
     6: Shield,
     7: BarChart3
+  };
+  
+  const launchIconMap = {
+    1: Camera,
+    2: Video,
+    3: Palette,
+    4: FileCheck,
+    5: FileStack,
+    6: Globe
   };
   
   return (
@@ -31,9 +40,18 @@ const Services = () => {
         </div>
       </section>
       
-      {/* Services Grid */}
+      {/* Core Services Grid */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Core Marketplace Growth Services
+            </h2>
+            <p className="text-lg text-gray-600">
+              Comprehensive solutions to scale your marketplace business
+            </p>
+          </div>
+          
           <div className="max-w-6xl mx-auto">
             <div className="grid gap-8">
               {mockData.services.map((service) => {
@@ -43,8 +61,8 @@ const Services = () => {
                     <CardContent className="p-8">
                       <div className="grid md:grid-cols-12 gap-6">
                         <div className="md:col-span-2 flex md:justify-center">
-                          <div className="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center">
-                            <Icon className="h-8 w-8 text-blue-600" />
+                          <div className="bg-gradient-to-br from-blue-100 to-blue-50 w-20 h-20 rounded-2xl flex items-center justify-center shadow-sm">
+                            <Icon className="h-10 w-10 text-blue-600" />
                           </div>
                         </div>
                         
@@ -81,8 +99,51 @@ const Services = () => {
         </div>
       </section>
       
-      {/* Service Process */}
+      {/* Launch & Enablement Services */}
       <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Launch & Enablement Services
+            </h2>
+            <p className="text-lg text-gray-600">
+              Everything you need to launch and scale your marketplace presence
+            </p>
+          </div>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {mockData.launchServices.map((service) => {
+                const Icon = launchIconMap[service.id] || Camera;
+                return (
+                  <Card key={service.id} className="border-2 hover:border-blue-600 transition-all hover:shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="bg-gradient-to-br from-green-100 to-green-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 shadow-sm">
+                        <Icon className="h-8 w-8 text-green-600" />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        {service.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+            
+            <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 text-center">
+              <p className="text-blue-900 font-medium">
+                Available as add-ons or bundled with growth plans.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Service Process */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
