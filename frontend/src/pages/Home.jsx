@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, TrendingUp, Target, BarChart3, Users, CheckCircle2, ShoppingBag } from 'lucide-react';
+import { ArrowRight, TrendingUp, Target, BarChart3, ShoppingBag, Package, ShoppingCart, Users, Smartphone } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { mockData } from '../mock';
@@ -12,12 +12,22 @@ const Home = () => {
     4: TrendingUp
   };
   
+  const platformIcons = {
+    'Amazon': Package,
+    'Flipkart': ShoppingCart,
+    'Meesho': Users,
+    'JioMart': Smartphone
+  };
+  
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 bg-gradient-to-b from-blue-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
+            <p className="text-sm md:text-base text-blue-600 font-medium mb-4">
+              SoloScale — E-commerce Growth Agency
+            </p>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               {mockData.brand.tagline}
             </h1>
@@ -112,14 +122,20 @@ const Home = () => {
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {mockData.platforms.map((platform) => (
-              <div
-                key={platform.id}
-                className="bg-white p-6 rounded-lg border-2 border-gray-200 hover:border-blue-600 transition-all hover:shadow-lg text-center"
-              >
-                <h3 className="font-bold text-xl text-gray-900">{platform.name}</h3>
-              </div>
-            ))}
+            {mockData.platforms.map((platform) => {
+              const Icon = platformIcons[platform.name] || Package;
+              return (
+                <div
+                  key={platform.id}
+                  className="bg-white p-6 rounded-lg border-2 border-gray-200 hover:border-blue-600 transition-all hover:shadow-lg flex flex-col items-center text-center"
+                >
+                  <div className="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center mb-3">
+                    <Icon className="h-8 w-8 text-blue-600" />
+                  </div>
+                  <h3 className="font-bold text-xl text-gray-900">{platform.name}</h3>
+                </div>
+              );
+            })}
           </div>
           
           <div className="text-center mt-8">
@@ -187,8 +203,8 @@ const Home = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {mockData.whyChoose.map((reason, index) => {
-              const Icon = iconMap[reason.id] || CheckCircle2;
+            {mockData.whyChoose.map((reason) => {
+              const Icon = iconMap[reason.id] || Target;
               return (
                 <div key={reason.id} className="bg-white p-6 rounded-lg border hover:shadow-lg transition-shadow">
                   <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
@@ -207,27 +223,27 @@ const Home = () => {
         </div>
       </section>
       
-      {/* Cities Served */}
+      {/* Brands We've Worked With */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Serving Sellers Across India
+              Brands We've Worked With
             </h2>
             <p className="text-lg text-gray-600">
-              100% online service delivery, wherever you are
+              Trusted by leading brands across India
             </p>
           </div>
           
-          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-            {mockData.cities.map((city, index) => (
-              <div
-                key={index}
-                className="px-6 py-3 bg-blue-50 text-blue-700 rounded-full font-medium text-sm"
-              >
-                {city}
-              </div>
-            ))}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-12 text-center">
+              <p className="text-gray-500 text-lg">
+                Brand logos will be displayed here
+              </p>
+              <p className="text-gray-400 text-sm mt-2">
+                (Awaiting brand logos with permission letters)
+              </p>
+            </div>
           </div>
         </div>
       </section>
