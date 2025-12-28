@@ -233,6 +233,63 @@ async def get_status_checks():
     
     return status_checks
 
+@api_router.post("/contact", response_model=LeadResponse)
+async def create_lead(input: LeadCreate):
+    """
+    Submit a new contact form lead
+    - Validates input data
+    - Stores in MongoDB
+    - Sends email notification
+    """
+    try:
+        # Create Lead object
+        lead_data = input.model_dump()
+        lead_data['monthly_gmv'] = lead_data.pop('monthlyGMV', '')
+        lead = Lead(**lead_data)
+        
+        # Convert to dict and serialize datetime to ISO string for MongoDB
+        doc = lead.model_dump()
+        doc['submitted_at'] = doc['submitted_at'].isoformat()
+        
+        # Save to database
+        await db.leads.insert_one(doc)
+        logger.info(f"New lead created: {lead.id} - {lead.name}")
+        
+        # Send email notification (async, doesn't block response)
+        await send_lead_notification_email(lead)
+        
+        return LeadResponse(
+            success=True,
+            message="Thank you! We'll contact you within 24 hours.",
+            lead_id=lead.id
+        )
+        
+    except ValueError as e:
+        logger.error(f"Validation error: {str(e)}")
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        logger.error(f"Error creating lead: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to submit form. Please try again.")
+
+@api_router.get("/leads", response_model=List[Lead])
+async def get_leads(limit: int = 100):
+    """
+    Get all leads (admin endpoint)
+    """
+    try:
+        # Exclude MongoDB's _id field from the query results
+        leads = await db.leads.find({}, {"_id": 0}).sort("submitted_at", -1).limit(limit).to_list(limit)
+        
+        # Convert ISO string timestamps back to datetime objects
+        for lead in leads:
+            if isinstance(lead['submitted_at'], str):
+                lead['submitted_at'] = datetime.fromisoformat(lead['submitted_at'])
+        
+        return leads
+    except Exception as e:
+        logger.error(f"Error fetching leads: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to fetch leads")
+
 # Include the router in the main app
 app.include_router(api_router)
 
