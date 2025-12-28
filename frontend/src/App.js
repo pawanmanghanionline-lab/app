@@ -21,6 +21,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/platforms" element={<Platforms />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
         </main>
         <Footer />
