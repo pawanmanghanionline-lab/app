@@ -25,12 +25,12 @@ const Home = () => {
       <section className="relative py-20 md:py-32 bg-gradient-to-b from-blue-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-sm md:text-base text-blue-600 font-medium mb-4">
-              SoloScale — E-commerce Growth Agency
-            </p>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              {mockData.brand.tagline}
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-4 leading-tight">
+              SoloScale
             </h1>
+            <h2 className="text-3xl md:text-5xl font-bold text-blue-600 mb-6 leading-tight">
+              {mockData.brand.tagline}
+            </h2>
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               India's trusted e-commerce growth agency helping brands and MSMEs scale on Amazon, Flipkart, Meesho, and JioMart.
             </p>
