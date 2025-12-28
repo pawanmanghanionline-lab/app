@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Platforms from "./pages/Platforms";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function App() {
   return (
