@@ -40,8 +40,51 @@ const Services = () => {
         </div>
       </section>
       
-      {/* Core Services Grid */}
+      {/* Launch & Enablement Services - NOW FIRST */}
       <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Launch & Enablement Services
+            </h2>
+            <p className="text-lg text-gray-600">
+              Everything you need to launch and scale your marketplace presence
+            </p>
+          </div>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {mockData.launchServices.map((service) => {
+                const Icon = launchIconMap[service.id] || Camera;
+                return (
+                  <Card key={service.id} className="border-2 hover:border-blue-600 transition-all hover:shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="bg-gradient-to-br from-green-100 to-green-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 shadow-sm">
+                        <Icon className="h-8 w-8 text-green-600" />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        {service.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+            
+            <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 text-center">
+              <p className="text-blue-900 font-medium">
+                Available as add-ons or bundled with growth plans.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Core Services Grid - NOW SECOND */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -94,49 +137,6 @@ const Services = () => {
                   </Card>
                 );
               })}
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Launch & Enablement Services */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Launch & Enablement Services
-            </h2>
-            <p className="text-lg text-gray-600">
-              Everything you need to launch and scale your marketplace presence
-            </p>
-          </div>
-          
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              {mockData.launchServices.map((service) => {
-                const Icon = launchIconMap[service.id] || Camera;
-                return (
-                  <Card key={service.id} className="border-2 hover:border-blue-600 transition-all hover:shadow-lg">
-                    <CardContent className="p-6">
-                      <div className="bg-gradient-to-br from-green-100 to-green-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 shadow-sm">
-                        <Icon className="h-8 w-8 text-green-600" />
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        {service.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-            
-            <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 text-center">
-              <p className="text-blue-900 font-medium">
-                Available as add-ons or bundled with growth plans.
-              </p>
             </div>
           </div>
         </div>
