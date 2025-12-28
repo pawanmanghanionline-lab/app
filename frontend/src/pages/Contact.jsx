@@ -237,9 +237,14 @@ const Contact = () => {
                         {isSubmitting ? 'Submitting...' : 'Get Free Audit'}
                       </Button>
                       
-                      <p className="text-xs text-gray-500 text-center">
-                        We'll respond within 24 hours. 100% confidential.
-                      </p>
+                      <div className="space-y-2">
+                        <p className="text-xs text-gray-500 text-center">
+                          We'll respond within 24 hours. 100% confidential.
+                        </p>
+                        <p className="text-xs text-blue-600 font-medium text-center bg-blue-50 py-2 px-4 rounded">
+                          All billing and invoicing are done strictly under GST. GST invoice will be provided for all services.
+                        </p>
+                      </div>
                     </form>
                   </CardContent>
                 </Card>
