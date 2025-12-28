@@ -126,6 +126,57 @@ export const mockData = {
     "D2C Brands",
     "MSMEs",
     "Furniture & Home Category Sellers"
+  ],
+  
+  launchServices: [
+    {
+      id: 1,
+      title: "Product Photography",
+      description: "Professional product shoots with lifestyle and white background images."
+    },
+    {
+      id: 2,
+      title: "Product Video Shoots",
+      description: "High-quality video content for listings and ads."
+    },
+    {
+      id: 3,
+      title: "Graphic & Creative Design",
+      description: "A+ content, brand stores, and marketing creatives."
+    },
+    {
+      id: 4,
+      title: "Trademark Registration",
+      description: "Complete trademark filing and brand registry support."
+    },
+    {
+      id: 5,
+      title: "GST Registration",
+      description: "GST registration assistance for new sellers."
+    },
+    {
+      id: 6,
+      title: "Shopify Website Development",
+      description: "Custom Shopify store setup for D2C brands."
+    }
+  ],
+  
+  platformStrategy: [
+    {
+      id: 1,
+      title: "Platform-Specific Playbooks",
+      description: "Each marketplace has different algorithms, ad systems, and policies."
+    },
+    {
+      id: 2,
+      title: "Category-Focused Optimization",
+      description: "Strategies tailored for furniture, home, office, and D2C categories."
+    },
+    {
+      id: 3,
+      title: "Performance-Driven Experimentation",
+      description: "Continuous testing of listings, ads, and creatives for higher ROI."
+    }
   ]
 };
 
