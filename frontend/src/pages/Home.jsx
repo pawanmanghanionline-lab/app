@@ -1,3 +1,4 @@
+// redeploy trigger
 import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Target, BarChart3, ShoppingBag, Package, ShoppingCart, Users, Smartphone } from 'lucide-react';
 import { Button } from '../components/ui/button';
