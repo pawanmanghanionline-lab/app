@@ -6,10 +6,10 @@ import { mockData } from '../mock';
 
 const Platforms = () => {
   const iconMap = {
-    'Amazon': Package,
-    'Flipkart': ShoppingCart,
-    'Meesho': Users,
-    'JioMart': Smartphone
+    'Amazon': Amazon logo,
+    'Flipkart': Flipkart Logo,
+    'Meesho': Meesho Logo,
+    'JioMart': Jiomart Logo
   };
   
   return (
