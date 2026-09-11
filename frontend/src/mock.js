@@ -1,17 +1,25 @@
-// Mock data for SoloScale website
+// Site content and contact details for SoloScale
 
 export const mockData = {
   brand: {
     name: "SoloScale",
-    tagline: "Scale Smarter. Sell Faster.",
-    description: "India's trusted e-commerce growth agency helping brands and MSMEs scale on Amazon, Flipkart, Meesho, and JioMart."
+    tagline: "Your eCommerce Growth Partner",
+    description: "SoloScale helps brands grow across major marketplaces and D2C commerce channels with marketplace management, SEO, advertising, creative content, and Shopify solutions."
   },
   
   contact: {
-    address: "Building, Aashray Pearl, Office No. 23, D-Wing, Opp. Water Tank, Pale Gaon, Ambernath, Maharashtra – 421501",
-    serviceArea: "Ulhasnagar & Pan-India (Online)",
+    phone: "8262879495",
+    whatsapp: "8262879495",
+    email: "hello@soloscale.in",
+    address: "Office No. 23, 1st Floor, D Wing, Aashray Pearl Building, Palegaon, Ambernath East – 421501",
+    serviceArea: "Pan-India (Online)",
     hours: "Monday to Saturday — 10:00 AM to 7:00 PM",
     deliveryMode: "100% Online"
+  },
+
+  social: {
+    instagram: "https://www.instagram.com/soloscale.agency/",
+    linkedin: "https://www.linkedin.com/company/solo-scale/"
   },
   
   services: [
@@ -67,30 +75,13 @@ export const mockData = {
   ],
   
   platforms: [
-    {
-      id: 1,
-      name: "Amazon",
-      expertise: "Full-service Amazon management including Seller Central optimization, FBA logistics, Amazon Ads, and Brand Registry support.",
-      features: ["Seller Central Management", "FBA Optimization", "Amazon PPC", "Brand Registry"]
-    },
-    {
-      id: 2,
-      name: "Flipkart",
-      expertise: "End-to-end Flipkart growth strategies covering listing optimization, ads management, and seller performance improvement.",
-      features: ["Seller Hub Management", "Flipkart Ads", "Big Billion Days", "Flipkart Plus"]
-    },
-    {
-      id: 3,
-      name: "Meesho",
-      expertise: "Specialized Meesho seller support for reseller network expansion, pricing strategy, and catalogue management.",
-      features: ["Reseller Network", "Zero Commission", "Catalogue Optimization", "Meesho Ads"]
-    },
-    {
-      id: 4,
-      name: "JioMart",
-      expertise: "JioMart integration and growth services for brands looking to tap into Reliance's digital commerce ecosystem.",
-      features: ["JioMart Seller", "Reliance Network", "Digital Commerce", "Omnichannel"]
-    }
+    { id: 1, name: "Amazon", expertise: "Full-service Amazon management." },
+    { id: 2, name: "Flipkart", expertise: "End-to-end Flipkart growth support." },
+    { id: 3, name: "Meesho", expertise: "Catalogue, pricing and growth support." },
+    { id: 4, name: "JioMart", expertise: "JioMart seller and growth support." },
+    { id: 5, name: "Myntra", expertise: "Marketplace growth support for fashion and lifestyle brands." },
+    { id: 6, name: "AJIO", expertise: "Marketplace growth support for fashion and lifestyle brands." },
+    { id: 7, name: "Shopify", expertise: "D2C Shopify store development and growth support." }
   ],
   
   whyChoose: [
@@ -106,19 +97,14 @@ export const mockData = {
     },
     {
       id: 3,
-      title: "100% Transparent Reporting",
-      description: "Weekly dashboards with real metrics and actionable insights."
+      title: "Transparent Reporting",
+      description: "Clear performance reporting with actionable insights."
     },
     {
       id: 4,
       title: "Pan-India Expertise",
-      description: "Serving sellers across metros and tier-2 cities with 100% online delivery."
+      description: "Serving brands and sellers across India with 100% online delivery."
     }
-  ],
-  
-  cities: [
-    "Delhi", "Mumbai", "Bengaluru", "Hyderabad", "Chennai", 
-    "Kolkata", "Pune", "Ahmedabad", "Ulhasnagar", "Pan-India"
   ],
   
   targetClients: [
@@ -170,58 +156,7 @@ export const mockData = {
     {
       id: 2,
       title: "Category-Focused Optimization",
-      description: "Strategies tailored for furniture, home, office, and D2C categories."
-    },
-    {
-      id: 3,
-      title: "Performance-Driven Experimentation",
-      description: "Continuous testing of listings, ads, and creatives for higher ROI."
-    }
-  ],
-  
-  launchServices: [
-    {
-      id: 1,
-      title: "Product Photography",
-      description: "Professional product shoots with lifestyle and white background images."
-    },
-    {
-      id: 2,
-      title: "Product Video Shoots",
-      description: "High-quality video content for listings and ads."
-    },
-    {
-      id: 3,
-      title: "Graphic & Creative Design",
-      description: "A+ content, brand stores, and marketing creatives."
-    },
-    {
-      id: 4,
-      title: "Trademark Registration",
-      description: "Complete trademark filing and brand registry support."
-    },
-    {
-      id: 5,
-      title: "GST Registration",
-      description: "GST registration assistance for new sellers."
-    },
-    {
-      id: 6,
-      title: "Shopify Website Development",
-      description: "Custom Shopify store setup for D2C brands."
-    }
-  ],
-  
-  platformStrategy: [
-    {
-      id: 1,
-      title: "Platform-Specific Playbooks",
-      description: "Each marketplace has different algorithms, ad systems, and policies."
-    },
-    {
-      id: 2,
-      title: "Category-Focused Optimization",
-      description: "Strategies tailored for furniture, home, office, and D2C categories."
+      description: "Strategies tailored for marketplace and D2C categories."
     },
     {
       id: 3,
@@ -231,21 +166,12 @@ export const mockData = {
   ]
 };
 
-// Mock form submission
+// Demo/local form submission. A production lead-delivery integration should replace this before launch.
 export const submitContactForm = async (formData) => {
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  
+  await new Promise(resolve => setTimeout(resolve, 500));
   console.log("Form submitted:", formData);
-  
-  // Store in localStorage for demo
   const existingLeads = JSON.parse(localStorage.getItem('soloscale_leads') || '[]');
-  existingLeads.push({
-    ...formData,
-    id: Date.now(),
-    submittedAt: new Date().toISOString()
-  });
+  existingLeads.push({ ...formData, id: Date.now(), submittedAt: new Date().toISOString() });
   localStorage.setItem('soloscale_leads', JSON.stringify(existingLeads));
-  
-  return { success: true, message: "Thank you! We'll contact you within 24 hours." };
+  return { success: true, message: "Thank you! We'll contact you shortly." };
 };
