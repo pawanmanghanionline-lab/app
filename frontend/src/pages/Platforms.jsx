@@ -1,180 +1,42 @@
+import { ArrowRight, BarChart3, Globe2, Megaphone, Search, ShoppingBag, Store, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Package, ShoppingCart, Users, Smartphone } from 'lucide-react';
-import { Button } from '../components/ui/button';
-import { Card, CardContent } from '../components/ui/card';
-import { mockData } from '../mock';
 
-const Platforms = () => {
-  const iconMap = {
-    'Amazon': Package,
-    'Flipkart': ShoppingCart,
-    'Meesho': Users,
-    'JioMart': Smartphone
-  };
-  
-  return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Master Every Major Marketplace
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600">
-              Platform-specific expertise to maximize your reach and revenue across India's top e-commerce channels.
-            </p>
-          </div>
-        </div>
-      </section>
-      
-      {/* Platforms Detail */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto space-y-12">
-            {mockData.platforms.map((platform, index) => {
-              const Icon = iconMap[platform.name] || Package;
-              const isEven = index % 2 === 0;
-              
-              return (
-                <Card key={platform.id} className="border-2 hover:border-blue-600 transition-all hover:shadow-xl">
-                  <CardContent className="p-8">
-                    <div className={`grid md:grid-cols-12 gap-8 items-center ${!isEven ? 'md:direction-rtl' : ''}`}>
-                      <div className={`md:col-span-3 ${!isEven ? 'md:order-last' : ''}`}>
-                        <div className="bg-blue-100 w-24 h-24 rounded-2xl flex items-center justify-center mx-auto">
-                          <Icon className="h-12 w-12 text-blue-600" />
-                        </div>
-                      </div>
-                      
-                      <div className={`md:col-span-9 ${!isEven ? 'md:order-first' : ''}`}>
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                          {platform.name}
-                        </h2>
-                        <p className="text-gray-600 mb-6 leading-relaxed">
-                          {platform.expertise}
-                        </p>
-                        
-                        <div className="space-y-3">
-                          <h4 className="font-semibold text-gray-900 text-sm uppercase tracking-wide">
-                            Our Expertise Includes:
-                          </h4>
-                          <div className="grid grid-cols-2 gap-3">
-                            {platform.features.map((feature, idx) => (
-                              <div key={idx} className="flex items-center space-x-2">
-                                <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                <span className="text-sm text-gray-700">{feature}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-      
-      {/* Multi-Platform Benefits */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Why Multi-Platform Matters
-              </h2>
-              <p className="text-lg text-gray-600">
-                Don't put all your eggs in one basket
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg border-2 hover:border-blue-600 transition-all">
-                <div className="text-blue-600 font-bold text-3xl mb-2">3x</div>
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  Reach Multiplier
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Access different customer segments on each platform to maximize market coverage.
-                </p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg border-2 hover:border-blue-600 transition-all">
-                <div className="text-blue-600 font-bold text-3xl mb-2">Risk</div>
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  Diversification
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Protect your business from single-platform dependency and policy changes.
-                </p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg border-2 hover:border-blue-600 transition-all">
-                <div className="text-blue-600 font-bold text-3xl mb-2">Higher</div>
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  Profit Margins
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Compare and optimize platform-specific costs, commissions, and ad spend.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Platform Strategy */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Our Platform Strategy
-              </h2>
-              <p className="text-lg text-gray-600">
-                Unified management, platform-specific optimization
-              </p>
-            </div>
-            
-            <div className="space-y-6">
-              {mockData.platformStrategy.map((strategy) => (
-                <div key={strategy.id} className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-semibold text-lg text-gray-900 mb-3">
-                    {strategy.title}
-                  </h3>
-                  <p className="text-gray-600">
-                    {strategy.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Expand Your Marketplace Presence?
-            </h2>
-            <p className="text-lg text-blue-100 mb-8">
-              Let's discuss which platforms are right for your business and create a growth strategy.
-            </p>
-            <Link to="/contact">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
-                Schedule Strategy Call
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-};
+const platforms = [
+  ['Amazon', 'Marketplace management, listing SEO, catalog, advertising and growth.'],
+  ['Flipkart', 'Catalog optimization, visibility, advertising and marketplace operations.'],
+  ['Meesho', 'Catalog, pricing, discoverability and performance-led marketplace growth.'],
+  ['JioMart', 'Marketplace setup, product optimization and ongoing growth management.'],
+  ['Myntra', 'Fashion marketplace operations, catalog, content and growth support.'],
+  ['AJIO', 'Marketplace execution, product presentation and performance optimization.'],
+  ['Shopify', 'D2C store strategy, conversion optimization and ecommerce growth systems.']
+];
+
+const Platforms = () => (
+  <div className="bg-white text-slate-950">
+    <section className="border-b border-slate-200 bg-[#f7fafc] py-20 lg:py-28">
+      <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
+        <p className="eyebrow">Marketplace + D2C</p>
+        <h1 className="mt-4 text-5xl font-black tracking-[-.04em] sm:text-6xl">One growth partner.<br /><span className="text-[#075B92]">Everywhere your brand sells.</span></h1>
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">SoloScale brings platform-specific execution together with one clear commercial strategy for your brand.</p>
+      </div>
+    </section>
+
+    <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {platforms.map(([name, description], index) => <article key={name} className={`group rounded-3xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-900/5 ${index === 6 ? 'md:col-span-2 lg:col-span-1' : ''}`}>
+          <div className="mb-10 flex items-center justify-between"><div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-[#075B92]"><Store className="h-5 w-5" /></div><span className="text-xs font-bold uppercase tracking-widest text-slate-400">0{index + 1}</span></div>
+          <h2 className="text-2xl font-black">{name}</h2><p className="mt-3 leading-7 text-slate-600">{description}</p>
+          <div className="mt-7 flex items-center text-sm font-bold text-[#075B92]">Explore growth opportunities <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" /></div>
+        </article>)}
+      </div>
+    </section>
+
+    <section className="bg-[#f7fafc] py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="grid gap-10 lg:grid-cols-2 lg:items-center"><div><p className="eyebrow">How we think</p><h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">Same business goal.<br /><span className="text-[#075B92]">Different platform playbooks.</span></h2><p className="mt-5 max-w-xl text-lg leading-8 text-slate-600">Every channel has different shoppers, algorithms, economics and operating rules. We adapt the execution without losing the bigger strategy.</p></div><div className="grid gap-4 sm:grid-cols-2">{[[Search,'Discoverability','Improve how customers find your products.'],[Megaphone,'Performance','Put spend behind the opportunities that matter.'],[BarChart3,'Optimization','Use performance data to improve decisions.'],[Globe2,'Expansion','Build a stronger presence across channels.']].map(([Icon,title,text]) => <div key={title} className="rounded-3xl border border-slate-200 bg-white p-6"><Icon className="h-5 w-5 text-[#075B92]" /><h3 className="mt-6 font-bold">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{text}</p></div>)}</div></div></div>
+    </section>
+
+    <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8"><div className="rounded-[32px] bg-[#075B92] px-7 py-12 text-white sm:px-12 lg:px-16"><div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end"><div><p className="text-xs font-bold uppercase tracking-[.25em] text-blue-200">Build your channel strategy</p><h2 className="mt-3 text-4xl font-black">Ready to grow across more channels?</h2></div><Link to="/contact" className="inline-flex h-12 items-center justify-center rounded-full bg-white px-7 font-bold text-[#075B92]">Talk to SoloScale <ArrowRight className="ml-2 h-4 w-4" /></Link></div></div></section>
+  </div>
+);
 
 export default Platforms;
